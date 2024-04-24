@@ -1,0 +1,42 @@
+Watching for file changes with StatReloader
+System check identified some issues:
+
+WARNINGS:
+?: (staticfiles.W004) The directory '/home/rosselio/djangoproj/static' in the STATICFILES_DIRS setting does not exist.
+
+System check identified 1 issue (0 silenced).
+[23/Apr/2024 11:58:14] "GET / HTTP/1.1" 200 182
+Not Found: /favicon.ico
+[23/Apr/2024 11:58:14] "GET /favicon.ico HTTP/1.1" 404 2269
+[23/Apr/2024 11:59:52] "GET / HTTP/1.1" 200 182
+[2024-04-23 20:20:59 +0800] [17654] [INFO] Starting gunicorn 22.0.0
+[2024-04-23 20:20:59 +0800] [17654] [INFO] Listening at: http://127.0.0.1:8000 (17654)
+[2024-04-23 20:20:59 +0800] [17654] [INFO] Using worker: sync
+[2024-04-23 20:20:59 +0800] [17655] [INFO] Booting worker with pid: 17655
+[2024-04-23 20:21:32 +0800] [17654] [CRITICAL] WORKER TIMEOUT (pid:17655)
+[2024-04-23 12:21:32 +0000] [17655] [ERROR] Error handling request (no URI read)
+Traceback (most recent call last):
+  File "/home/rosselio/djangoproj/djangoproj_env10/lib/python3.10/site-packages/gunicorn/workers/sync.py", line 134, in handle
+    req = next(parser)
+  File "/home/rosselio/djangoproj/djangoproj_env10/lib/python3.10/site-packages/gunicorn/http/parser.py", line 42, in __next__
+    self.mesg = self.mesg_class(self.cfg, self.unreader, self.source_addr, self.req_count)
+  File "/home/rosselio/djangoproj/djangoproj_env10/lib/python3.10/site-packages/gunicorn/http/message.py", line 257, in __init__
+    super().__init__(cfg, unreader, peer_addr)
+  File "/home/rosselio/djangoproj/djangoproj_env10/lib/python3.10/site-packages/gunicorn/http/message.py", line 60, in __init__
+    unused = self.parse(self.unreader)
+  File "/home/rosselio/djangoproj/djangoproj_env10/lib/python3.10/site-packages/gunicorn/http/message.py", line 269, in parse
+    self.get_data(unreader, buf, stop=True)
+  File "/home/rosselio/djangoproj/djangoproj_env10/lib/python3.10/site-packages/gunicorn/http/message.py", line 260, in get_data
+    data = unreader.read()
+  File "/home/rosselio/djangoproj/djangoproj_env10/lib/python3.10/site-packages/gunicorn/http/unreader.py", line 37, in read
+    d = self.chunk()
+  File "/home/rosselio/djangoproj/djangoproj_env10/lib/python3.10/site-packages/gunicorn/http/unreader.py", line 64, in chunk
+    return self.sock.recv(self.mxchunk)
+  File "/home/rosselio/djangoproj/djangoproj_env10/lib/python3.10/site-packages/gunicorn/workers/base.py", line 203, in handle_abort
+    sys.exit(1)
+SystemExit: 1
+[2024-04-23 12:21:32 +0000] [17655] [INFO] Worker exiting (pid: 17655)
+[2024-04-23 20:21:32 +0800] [17792] [INFO] Booting worker with pid: 17792
+[2024-04-23 12:37:52 +0000] [17792] [INFO] Worker exiting (pid: 17792)
+[2024-04-23 20:37:52 +0800] [17654] [INFO] Handling signal: term
+[2024-04-23 20:37:52 +0800] [17654] [INFO] Shutting down: Master
